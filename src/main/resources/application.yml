@@ -1,0 +1,36 @@
+server:
+  port: 8989
+  
+spring:
+  application.name: API-Gateway
+  cloud:
+    netflix:
+      ribbon=true
+    gateway:
+      discovery:        locator:          lower-case-service-id: true
+          enabled: true
+      routes:
+        - id: CREATE-USER
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/createUser
+        - id: AUTHENTICATE-USER
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/test
+          filters:
+            - AuthenticationFilter
+        - id: LOGIN-USER
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/authenticate
+
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance: 
+    hostname: localhost
