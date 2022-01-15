@@ -2,24 +2,24 @@ package com.api.apigateway.models;
 
 public class AuthRequest {
 
-	private String jwtToken;
+	private String jwt;
 
-	public String getJwtToken() {
-		return jwtToken;
+	public String getJwt() {
+		return jwt;
 	}
 
-	public void setJwtToken(String jwtToken) {
-		this.jwtToken = jwtToken;
+	public void setJwt(String jwt) {
+		this.jwt = jwt;
 	}
 
 	public AuthRequest(String jwtToken) {
 		super();
-		this.jwtToken = jwtToken;
+		this.jwt = jwtToken;
 	}
 
 	@Override
 	public String toString() {
-		return "AuthRequest [jwtToken=" + jwtToken + "]";
+		return "AuthRequest [jwtToken=" + jwt + "]";
 	}
 
 }

@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.Gson;
+
 @Component
 public class BeanConfig {
 
@@ -13,6 +15,11 @@ public class BeanConfig {
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 
+	}
+	
+	@Bean
+	public Gson gson() {
+		return new Gson();
 	}
 
 }
